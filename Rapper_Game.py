@@ -1,18 +1,16 @@
 # Creating a dictionary with all key-pair values for the lyrics and rapper
 #Try to make a game that you would personally like to play
 
-
-#Things to do
-    #FUNCTION FOR MENU
-    #FUNCTON FOR INCREASING THE SCORE
-    #FUNCTION FOR PLAYING THE GAME == starts at zero and then increases
-    # Making code easier to read, simple and utilizing what we learned during class
-    #Don't allow duplicates in the random /shuffle option - make a list 
-    #to keep track of which lyric they've already seen
+#THINGS TO DO
     # Print random rap lyric
     # print random.sample(rap_pair, 1) and return random.sample(rap_pair())     
+    #Don't allow duplicates in the random /shuffle option - make a list 
+    #to keep track of which lyric they've already seen
+
     #Store high scores   
+
     # API from Rap Genius
+
     # After 10 guesses,
     # - If 0-5 out of 10 guesses right, print message
     # - If 6-7 out of 10 guesses right, print message
@@ -20,6 +18,10 @@
 
     # Prompt user if they want to play again - have a function to bring 
     #them back to the top or put the whole thing in a loop
+
+    #add ASCII Art for when people exit the game
+
+    # Making code easier to read, simple and utilizing what we learned during class
 
 
 rap_pair = {
@@ -40,16 +42,16 @@ def explain_game():
 #add menu to start game again 
 
     # - Greet user
-    print "\n Hi there! Welcome to a game of Guess the Rapper ~~~ where you will be... "
-    print "You guessed right! Guessing who sang what!"
+    print "\nHi there!"
+    print "\nWelcome to a game of Guess the Rapper ~~~ where you will be... \n"
+    print "You guessed right! Guessing who sang what!\n"
 
     # - Prompt user for name
-    print
-    print "First off, let's get to know each other. What's your name?"
+    print "First off, let's get to know each other. What's your name?\n"
     user_name = raw_input(">>> " )
 
     # - Welcome message to user (include name)
-    print "\n Hi ",user_name,"! Glad that you could join us.\n"
+    print "\nHi ",user_name,"! Glad that you could join us.\n"
 
     # - Instructions for user about the game
     #     - 6 rap lyrics will be given out
@@ -60,15 +62,14 @@ def explain_game():
     print "In this game, I'll ask you to guess the rapper behind the lyrics"
     print
     print "\t* I'll let you know when you've guessed right or wrong after each guess"
-    print
     print "\t* At the end, I'll let you know how close you are to becoming a rapper"
 
+#Function for menu
 def menu_choice():
-    print "\nAre you ready to start playing? "
-    print "(type exit at any point if you would like to end the game)\n"
+    print "\nAre you ready to start playing? \n"
     print "YES to start playing"
     print "NO if you wouldn't like to play"
-    print "EXIT to quit"
+    print "EXIT to quit\n"
 
     ready_to_play = raw_input(">>> ")
     return ready_to_play.lower()
@@ -77,17 +78,17 @@ def menu_choice():
 #     If ready, we'll start the game
 #     Else, if not ready, message letting them know they can try later (break)
 
-
 def execute_game():
     while True:
         ready_to_play = menu_choice()
 
         #Need a break statement to exit
         if ready_to_play == "exit":
+            print "No problem, I hope you'll decide to come back! :)"
             break
         
         elif ready_to_play == "no":
-            print "Okay, I understand. No pressure, just come back when you're ready"
+            print "\nOkay, I understand. No pressure, just come back when you're ready\n"
             break
 
     # - Prompt for user inpur
@@ -99,23 +100,26 @@ def execute_game():
 
         elif ready_to_play == "yes":
             score = 0
+            #Function for keeping a score: starts at zero and then increases
 
             for key in rap_pair:
                 print key
                 guess = raw_input(">>> ")
 
-            if guess.lower() == rap_pair[key]:
-                print "That's a win!"
-                score = score + 1
-                print #morespace
+                if guess.lower() == rap_pair[key]:
+                    print "\nThat's a win!"
+                    score = score + 1
+                    print #morespace
 
-            else:
-                print "I'm afraid that's the wrong guess..."
+                elif guess = "exit"
+                    break
+
+                else:
+                    print "\nI'm afraid that's the wrong guess...\n"
 
         else:
-            print "Sorry, I don't know what that means. Are you ready to play?"
-            ready_to_play = raw_input(">>> ")
-
+            print "\nSorry, I don't know what that means. Are you ready to play?\n"
+            menu_choice()
 
 #Call Function
 explain_game()
