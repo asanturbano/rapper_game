@@ -91,19 +91,20 @@ def execute_game():
             ascii_art_exit()
             break
 
-    # - Prompt for user inpur
+    # Prompt for user inpur
     #     If correct, print message, count as 1
     #     If incorrect, print other message, count as 0
     #     Add to total score
     #     Return
-    # - Repeat 5 more times
+    # Repeat 5 more times
 
         elif ready_to_play == "yes":
             score = 0
             #Function for keeping a score: starts at zero and then increases
             
             # Print random rap lyric
-            for lyric in range(11):
+            seen_lyrics = {}
+            for lyric in range(10):
                 lyric = random.choice(rap_pair.keys())
                 print lyric
                 guess = raw_input("\n>>> ")
