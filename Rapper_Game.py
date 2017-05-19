@@ -4,11 +4,11 @@
 
 #THINGS TO DO
     # Print random rap lyric
-    # Print random.sample(rap_pair, 1) and return random.sample(rap_pair())     
     #Don't allow duplicates in the random /shuffle option - make a list 
     #to keep track of which lyric they've already seen
 
     # API from Rap Genius
+import random
 
 def explain_game():
     # - Greet user
@@ -47,17 +47,17 @@ def menu_choice():
 # After 6 guesses, depending on score, print message
 def message_after_game(score):
 
-    if score <= 2:
-        print "Your score is ",score, "out of 6"
+    if score <= 4:
+        print "Your score is ",score, "out of 10"
         print "Oooh, it looks like you've got a long way to go to be a rapper"
 
-    elif 2 < score < 5:
-        print "Your score is ",score, "out of 6"
+    elif 4 < score < 9:
+        print "Your score is ",score, "out of 10"
         print "You're so close to becoming a rapper, you just need a little more practice"
 
-    elif score >= 5:
-        print "Your score is ",score, "out of 6"
-        print "You're a certified rapper, go out there and make magic"
+    elif score >= 9:
+        print "Your score is ",score, "out of 10"
+        print "You're a certified rapper, go out there and make some magic"
 
     else:
         print "\ncomputing error, I'm too old for this\n"
@@ -101,12 +101,13 @@ def execute_game():
         elif ready_to_play == "yes":
             score = 0
             #Function for keeping a score: starts at zero and then increases
-
-            for key in rap_pair:
-                print key
-                guess = raw_input(">>> ")
-
-                if guess.lower() == rap_pair[key]:
+            
+            # Print random rap lyric
+            for lyric in range(11):
+                lyric = random.choice(rap_pair.keys())
+                print lyric
+                guess = raw_input("\n>>> ")
+                if guess.lower() == rap_pair[lyric]:
                     print "\nThat's a win!"
                     score = score + 1
                     print #morespace
@@ -131,10 +132,10 @@ rap_pair = {
     "The lonely stoner seems to free his mind at night": "kid cudi",
     "Shake it like a Polaroid picture": "outkast",
     "Pretty woman, wassup? Is you here right now? You a stand-up or is you in your chair right now?": "nicki minaj",
-    # "I got hustle, though ambition flow inside my DNA": "kendrick lamar",
-    # "Man, I promise I'm so self-conscious, that's why you always see me with at least one of my watched": "kanye west",
-    # "I'm so heartless, thoughtless, lawless and flawless, smallest, regardless": "nicki minaj",
-    # "Tell the promoter we need more seats, we just sold out all the floor seats": "nicki minaj"
+    "I got hustle, though ambition flow inside my DNA": "kendrick lamar",
+    "Man, I promise I'm so self-conscious, that's why you always see me with at least one of my watched": "kanye west",
+    "I'm so heartless, thoughtless, lawless and flawless, smallest, regardless": "nicki minaj",
+    "Tell the promoter we need more seats, we just sold out all the floor seats": "nicki minaj"
         }          
 
 
