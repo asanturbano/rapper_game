@@ -11,14 +11,6 @@
 
     # API from Rap Genius
 
-    # After 10 guesses,
-    # - If 0-5 out of 10 guesses right, print message
-    # - If 6-7 out of 10 guesses right, print message
-    # - If 8-10 out of 10 guesses right, print message
-
-    # Prompt user if they want to play again - have a function to bring 
-    #them back to the top or put the whole thing in a loop
-
     #add ASCII Art for when people exit the game
 
     # Making code easier to read, simple and utilizing what we learned during class
@@ -111,12 +103,35 @@ def execute_game():
                     score = score + 1
                     print #morespace
 
-                elif guess = "exit"
+                elif guess == "exit":
                     break
 
                 else:
                     print "\nI'm afraid that's the wrong guess...\n"
 
+            if score <= 2:
+                print "Your score is ",score, "out of 6"
+                print "Oooh, it looks like you've got a long way to go to be a rapper"
+
+            elif 2 < score < 5:
+                print "Your score is ",score, "out of 6"
+                print "You're so close to becoming a rapper, you just need a little more practice"
+
+            elif score >= 5:
+                print "Your score is ",score, "out of 6"
+                print "You're a certified rapper, go out there and make magic"
+
+            else:
+                print "\ncomputing error, I'm too old for this\n"
+
+            # After 6 guesses,
+            # - If 0-2 out of 10 guesses right, print message
+            # - If 3-4 out of 10 guesses right, print message
+            # - If 5-6 out of 10 guesses right, print message
+
+            # Prompt user if they want to play again - have a function to bring 
+            #them back to the top or put the whole thing in a loop
+            
         else:
             print "\nSorry, I don't know what that means. Are you ready to play?\n"
             menu_choice()
