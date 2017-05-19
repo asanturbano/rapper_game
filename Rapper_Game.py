@@ -1,38 +1,16 @@
 # Creating a dictionary with all key-pair values for the lyrics and rapper
 #Try to make a game that you would personally like to play
+# Make sure code is easy to read, simple and utilizing what we learned during class
 
 #THINGS TO DO
     # Print random rap lyric
-    # print random.sample(rap_pair, 1) and return random.sample(rap_pair())     
+    # Print random.sample(rap_pair, 1) and return random.sample(rap_pair())     
     #Don't allow duplicates in the random /shuffle option - make a list 
     #to keep track of which lyric they've already seen
 
-    #Store high scores   
-
     # API from Rap Genius
 
-    #add ASCII Art for when people exit the game
-
-    # Making code easier to read, simple and utilizing what we learned during class
-
-
-rap_pair = {
-    "I remember syrup sandwiches and crime allowances": "kendrick lamar",
-    "Percocets, molly, Percocets": "future",
-    "Let the suicide doors up, I threw suicies on the tour bus": "kanye west",
-    "The lonely stoner seems to free his mind at night": "kid cudi",
-    "Shake it like a Polaroid picture": "outkast",
-    "Pretty woman, wassup? Is you here right now? You a stand-up or is you in your chair right now?": "nicki minaj",
-    # "I got hustle, though ambition flow inside my DNA": "kendrick lamar",
-    # "Man, I promise I'm so self-conscious, that's why you always see me with at least one of my watched": "kanye west",
-    # "I'm so heartless, thoughtless, lawless and flawless, smallest, regardless": "nicki minaj",
-    # "Tell the promoter we need more seats, we just sold out all the floor seats": "nicki minaj"
-        }          
-
-
 def explain_game():
-#add menu to start game again 
-
     # - Greet user
     print "\nHi there!"
     print "\nWelcome to a game of Guess the Rapper ~~~ where you will be... \n"
@@ -65,6 +43,36 @@ def menu_choice():
 
     ready_to_play = raw_input(">>> ")
     return ready_to_play.lower()
+            
+# After 6 guesses, depending on score, print message
+def message_after_game(score):
+
+    if score <= 2:
+        print "Your score is ",score, "out of 6"
+        print "Oooh, it looks like you've got a long way to go to be a rapper"
+
+    elif 2 < score < 5:
+        print "Your score is ",score, "out of 6"
+        print "You're so close to becoming a rapper, you just need a little more practice"
+
+    elif score >= 5:
+        print "Your score is ",score, "out of 6"
+        print "You're a certified rapper, go out there and make magic"
+
+    else:
+        print "\ncomputing error, I'm too old for this\n"
+
+#add ASCII Art for when people exit the game
+def ascii_art_exit():
+    print "\nNo problem, I hope you'll decide to come back! \n"
+    print "      ,o8o, ,o8o,"
+    print "    ,888888,888888,"
+    print "    888888888888888"
+    print "    888888888888888"
+    print "    `8888888888888'"
+    print "      `888888888'"
+    print "        `88888'"
+    print "          `8' \n"
 
 # Prompt user if they're ready
 #     If ready, we'll start the game
@@ -76,11 +84,11 @@ def execute_game():
 
         #Need a break statement to exit
         if ready_to_play == "exit":
-            print "No problem, I hope you'll decide to come back! :)"
+            ascii_art_exit()
             break
         
         elif ready_to_play == "no":
-            print "\nOkay, I understand. No pressure, just come back when you're ready\n"
+            ascii_art_exit()
             break
 
     # - Prompt for user inpur
@@ -108,33 +116,27 @@ def execute_game():
 
                 else:
                     print "\nI'm afraid that's the wrong guess...\n"
+            message_after_game(score)
 
-            if score <= 2:
-                print "Your score is ",score, "out of 6"
-                print "Oooh, it looks like you've got a long way to go to be a rapper"
 
-            elif 2 < score < 5:
-                print "Your score is ",score, "out of 6"
-                print "You're so close to becoming a rapper, you just need a little more practice"
-
-            elif score >= 5:
-                print "Your score is ",score, "out of 6"
-                print "You're a certified rapper, go out there and make magic"
-
-            else:
-                print "\ncomputing error, I'm too old for this\n"
-
-            # After 6 guesses,
-            # - If 0-2 out of 10 guesses right, print message
-            # - If 3-4 out of 10 guesses right, print message
-            # - If 5-6 out of 10 guesses right, print message
-
-            # Prompt user if they want to play again - have a function to bring 
-            #them back to the top or put the whole thing in a loop
-            
         else:
             print "\nSorry, I don't know what that means. Are you ready to play?\n"
             menu_choice()
+
+
+rap_pair = {
+    "I remember syrup sandwiches and crime allowances": "kendrick lamar",
+    "Percocets, molly, Percocets": "future",
+    "Let the suicide doors up, I threw suicies on the tour bus": "kanye west",
+    "The lonely stoner seems to free his mind at night": "kid cudi",
+    "Shake it like a Polaroid picture": "outkast",
+    "Pretty woman, wassup? Is you here right now? You a stand-up or is you in your chair right now?": "nicki minaj",
+    # "I got hustle, though ambition flow inside my DNA": "kendrick lamar",
+    # "Man, I promise I'm so self-conscious, that's why you always see me with at least one of my watched": "kanye west",
+    # "I'm so heartless, thoughtless, lawless and flawless, smallest, regardless": "nicki minaj",
+    # "Tell the promoter we need more seats, we just sold out all the floor seats": "nicki minaj"
+        }          
+
 
 #Call Function
 explain_game()
