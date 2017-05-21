@@ -103,9 +103,15 @@ def execute_game():
             #Function for keeping a score: starts at zero and then increases
             
             # Print random rap lyric
-            seen_lyrics = {}
+            seen_lyrics = set()
             for lyric in range(10):
                 lyric = random.choice(rap_pair.keys())
+
+                while lyric in seen_lyrics:
+                    lyric = random.choice(rap_pair.keys())
+                else:
+                    seen_lyrics.add(lyric)
+                
                 print lyric
                 guess = raw_input("\n>>> ")
                 if guess.lower() == rap_pair[lyric]:
